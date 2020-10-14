@@ -1,0 +1,5 @@
+FROM python:alpine
+RUN pip install flask requests
+COPY . .
+EXPOSE 3002
+CMD ["python","movies.py"]

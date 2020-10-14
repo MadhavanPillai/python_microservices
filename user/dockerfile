@@ -1,0 +1,8 @@
+FROM python:alpine
+RUN pip install flask requests
+COPY . .
+EXPOSE 3000
+ENV BOOKINGS_PORT='3001'
+ENV MOVIES_PORT='3002'
+ENV SHOWTIMES_PORT='3003'
+CMD ["python","user.py"]

@@ -1,0 +1,5 @@
+FROM python:alpine
+RUN pip install flask requests
+COPY . .
+EXPOSE 3001
+CMD ["python","bookings.py"]

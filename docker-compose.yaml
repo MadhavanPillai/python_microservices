@@ -1,0 +1,29 @@
+version: "3"
+services:
+  bookings:
+    build: ./bookings
+    image: rsmadhavan/bookings
+    ports:
+      - "3001:3001"
+  movies:
+    build: ./movies
+    image: rsmadhavan/movies
+    ports:
+      - "3002:3002"
+  showtimes:
+    build: ./showtimes
+    image: rsmadhavan/showtimes
+    ports:
+      - "3003:3003"
+  user:
+    build: ./user
+    image: rsmadhavan/user
+    ports:
+      - "3000:3000"
+    environment:
+      - FLASK_ENV=production
+    links:
+      - "bookings"
+      - "movies"
+      - "showtimes"
+    
