@@ -10,8 +10,7 @@ pipeline{
         stage('build & test'){
             steps{
                 echo "starting docker compose"
-                docker-compose build
-                docker-compose up -d
+                sh"docker-compose up -d --build"
                 sh"python3 Tests.py"
             }
         stage('publish image'){
