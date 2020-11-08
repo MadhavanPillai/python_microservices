@@ -9,14 +9,16 @@ pipeline{
         }
         stage('build & test'){
             steps{
-                sh '''
-                echo "starting docker-compose"
+                echo "starting docker compose"
                 docker-compose build
                 docker-compose up -d
-                python3 Tests.py
-                echo "Tests completed successfully")
-                '''
+                sh"python3 Tests.py"
             }
+        stage('publish image'){
+            steps{
+                echo 'Going to push the images to G Container Registry'
+            }
+        }
 
         }
     }
